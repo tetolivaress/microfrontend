@@ -1,0 +1,23 @@
+{
+  "name": "micro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --parallel dev",
+    "build": "pnpm --parallel build",
+    "test": "pnpm --parallel test",
+    "dev:host": "pnpm --filter @micro/rick build && pnpm --filter @micro/harry build && pnpm --filter @micro/rick preview & pnpm --filter @micro/harry preview & pnpm --filter @micro/host dev"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.0",
+  "dependencies": {
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.34"
+  }
+}
