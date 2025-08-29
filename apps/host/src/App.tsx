@@ -2,9 +2,9 @@ import Rick from './components/Rick'
 import Harry from './components/Harry'
 import styled from 'styled-components'
 import Header from './components/Header'
-import { useState, useEffect } from 'react'
+import { useApp } from './hooks'
 import './config/i18n'
-import { useTranslation } from 'react-i18next'
+
 
 export const Grid = styled.div`
   display: grid;
@@ -14,18 +14,7 @@ export const Grid = styled.div`
 `
 
 function App() {
-  const [language, setLanguage] = useState('es')
-  const { i18n } = useTranslation()
-  
-  const toggleLanguage = () => {
-    const newLanguage = language === 'es' ? 'en' : 'es'
-    setLanguage(newLanguage)
-  }
-
-  // Sync language with i18n
-  useEffect(() => {
-    i18n.changeLanguage(language)
-  }, [language, i18n])
+  const { language, toggleLanguage } = useApp()
 
   return (
     <>

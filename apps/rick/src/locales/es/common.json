@@ -5,9 +5,9 @@
   "loading": "Cargando...",
   "error": "Error: {{message}}",
   "character": {
-    "name": "Nombre",
-    "status": "Estatus",
-    "species": "Especie",
+    "name": "Nombre: ",
+    "status": "Estatus: ",
+    "species": "Especie: ",
     "alien": "Alien",
     "human": "Humano",
     "alive": "Vivo",

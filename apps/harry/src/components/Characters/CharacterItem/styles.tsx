@@ -14,6 +14,6 @@ export const StyledCharacterImage = styled.img`
   border-radius: 50%;
 `
 
-export const StyledCharacterTitle = styled.p`
+export const StyledCharacterTitle = styled.span`
   font-weight: bold;
 `

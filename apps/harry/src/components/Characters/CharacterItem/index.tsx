@@ -10,12 +10,18 @@ const CharacterItem = ({ character }: { character: Character }) => {
   return (
     <StyledCharacterItem>
       <StyledCharacterImage src={image} alt={character.name} />
-      <StyledCharacterTitle>{t('character.name')}</StyledCharacterTitle>
-      <p>{character.name}</p>
-      <StyledCharacterTitle>{t('character.actor')}</StyledCharacterTitle>
-      <p>{character.actor}</p>
-      <StyledCharacterTitle>{t('character.house')}</StyledCharacterTitle>
-      <p>{character.house}</p>
+      <p>
+        <StyledCharacterTitle>{t('character.name')}</StyledCharacterTitle>
+        <span>{character.name}</span>
+      </p>
+      <p>
+        <StyledCharacterTitle>{t('character.actor')}</StyledCharacterTitle>
+        <span>{character.actor}</span>
+      </p>
+      <p>
+        <StyledCharacterTitle>{t('character.house')}</StyledCharacterTitle>
+        <span>{character.house}</span>
+      </p>
     </StyledCharacterItem>
   )
 }

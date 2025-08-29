@@ -7,12 +7,18 @@ const CharacterItem = ({ character }: { character: CharactersResult }) => {
   return (
     <StyledCharacterItem>
       <StyledCharacterImage src={character.image} alt={character.name} />
-      <StyledCharacterTitle>{t('character.name')}</StyledCharacterTitle>
-      <p>{character.name}</p>
-      <StyledCharacterTitle>{t('character.status')}</StyledCharacterTitle>
-      <p>{t(`character.${character.status.toLowerCase()}`)}</p>
+      <p>
+        <StyledCharacterTitle>{t('character.name')}</StyledCharacterTitle>
+        <span>{character.name}</span>
+      </p>
+      <p>
+        <StyledCharacterTitle>{t('character.status')}</StyledCharacterTitle>
+        <span>{t(`character.${character.status.toLowerCase()}`)}</span>
+      </p>
+      <p>
       <StyledCharacterTitle>{t('character.species')}</StyledCharacterTitle>
-      <p>{t(`character.${character.species.toLowerCase()}`)}</p>
+        <span>{t(`character.${character.species.toLowerCase()}`)}</span>
+      </p>
     </StyledCharacterItem>
   )
 }

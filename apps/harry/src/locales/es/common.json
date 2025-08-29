@@ -5,8 +5,8 @@
   "loading": "Cargando...",
   "error": "Error: {{message}}",
   "character": {
-    "name": "Nombre",
-    "actor": "Actor",
-    "house": "Casa"
+    "name": "Nombre:  ",
+    "actor": "Actor: ",
+    "house": "Casa: "
   }
 }
