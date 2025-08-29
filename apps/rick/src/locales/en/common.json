@@ -1,0 +1,17 @@
+{
+  "buttons": {
+    "showCharacters": "Show Characters"
+  },
+  "loading": "Loading...",
+  "error": "Error: {{message}}",
+  "character": {
+    "name": "Name",
+    "status": "Status",
+    "species": "Species",
+    "alien": "Alien",
+    "human": "Human",
+    "alive": "Alive",
+    "dead": "Dead",
+    "unknown": "unknown"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "buttons": {
+    "showCharacters": "Mostrar Personajes"
+  },
+  "loading": "Cargando...",
+  "error": "Error: {{message}}",
+  "character": {
+    "name": "Nombre",
+    "actor": "Actor",
+    "house": "Casa"
+  }
+}

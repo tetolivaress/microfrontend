@@ -7,11 +7,11 @@ import App from './App.tsx'
 
 const queryClient = new QueryClient()
 
-const mount = (el: HTMLElement) => {
+const mount = (el: HTMLElement, { language }: { language: string }) => {
   createRoot(el).render(
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <App language={language} />
         <ReactQueryDevtools />
       </QueryClientProvider>
     </StrictMode>,
@@ -21,7 +21,7 @@ const mount = (el: HTMLElement) => {
 if (import.meta.env.VITE_NODE_ENV === 'development') {
   const devRoot = document.querySelector('#_rick-dev-root')
   if (devRoot instanceof HTMLElement) {
-    mount(devRoot)
+    mount(devRoot, { language: 'es' })
   }
 }
 

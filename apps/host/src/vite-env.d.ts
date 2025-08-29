@@ -2,9 +2,9 @@
 
 // Module federation type declarations
 declare module 'rick/App' {
-  export function mount(element: HTMLElement): void;
+  export function mount(element: HTMLElement, { language }: { language: string }): void;
 }
 
 declare module 'harry/App' {
-  export function mount(element: HTMLElement): void;
+  export function mount(element: HTMLElement, { language }: { language: string }): void;
 }

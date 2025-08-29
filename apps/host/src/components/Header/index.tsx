@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Button from '../Button'
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -18,8 +19,9 @@ const HeaderTitle = styled.h1`
   font-weight: 600;
 `
 
-const Header = () => {
+const Header = ({ onToggleLanguage }: { onToggleLanguage: () => void }) => {
   return <HeaderContainer>
+    <Button onClick={onToggleLanguage}>Toogle Language</Button>
     <HeaderTitle>Rick Morty & Harry Potter</HeaderTitle>
   </HeaderContainer>
 }
