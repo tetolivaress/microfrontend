@@ -21,5 +21,10 @@ export default defineConfig(({ mode }) => {
       port: 3002,
     },
     base: env.VITE_NODE_ENV === 'production' ? '/harry/' : 'http://localhost:3002/',
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: './src/test/setup.ts',
+    },
   }
 })
