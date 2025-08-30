@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const StyledButtonContainer = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: ${({ theme }) => theme.button.colors.secondary};
   border: none;
   padding: ${({ theme }) => theme.padding};

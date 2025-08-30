@@ -6,6 +6,8 @@ export const StyledCharacterItemContainer = styled.div`
   gap: 1rem;
   align-items: center;
   justify-content: center;
+  padding: ${({ theme }) => theme.padding};
+  border-radius: ${({ theme }) => theme.borderRadius};
 `
 
 export const StyledCharacterImage = styled.img`
@@ -25,3 +27,11 @@ export const StyledCharacterDescription = styled.div`
 export const StyledCharacterTitle = styled.span`
   font-weight: bold;
 `
+
+export const StyledCharacterItemHover = styled(StyledCharacterItemContainer)`
+  &:hover {
+    background-color: ${({ theme }) => theme.hoverColor};
+  }
+`
+
+export const StyledCharacterItem = StyledCharacterItemHover

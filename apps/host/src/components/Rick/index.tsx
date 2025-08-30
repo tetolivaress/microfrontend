@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 import { mount } from 'rick/App'
+import { StyledCenterContainer } from '../../Theme'
 
 const Rick = ({ language }: { language: string }) => {
   const ref = useRef<HTMLDivElement>(null)
@@ -11,7 +12,7 @@ const Rick = ({ language }: { language: string }) => {
     }
   }, [language])
 
-  return <div ref={ref} />
+  return <StyledCenterContainer ref={ref} />
 
 }
 

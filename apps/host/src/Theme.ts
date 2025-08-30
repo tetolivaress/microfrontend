@@ -1,4 +1,4 @@
-import { type DefaultTheme } from "styled-components"
+import { type DefaultTheme, styled } from "styled-components"
 
 
 declare module 'styled-components' {
@@ -56,3 +56,17 @@ export const Theme: DefaultTheme = {
     white: '#fff',
   }
 }
+
+export const StyledCenterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
+
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 48px;
+  justify-content: center;
+`

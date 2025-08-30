@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import CharacterItem from './index'
 import { mockCharacter } from '../../../mocks/characters'
+import type { ReactNode } from 'react'
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -38,9 +39,9 @@ describe('CharacterItem Component', () => {
   it('renders all required elements with proper structure', () => {
     render(<CharacterItem character={mockCharacter} />)
     
-    const nameSection = screen.getByText('Name').closest('p')
-    const actorSection = screen.getByText('Actor').closest('p')
-    const houseSection = screen.getByText('House').closest('p')
+    const nameSection = screen.getByText('Name').closest('div')
+    const actorSection = screen.getByText('Actor').closest('div')
+    const houseSection = screen.getByText('House').closest('div')
     
     expect(nameSection).toBeInTheDocument()
     expect(actorSection).toBeInTheDocument()
