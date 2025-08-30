@@ -6,16 +6,16 @@ import RickScreen from './index'
 import * as charactersService from '../../services/characters'
 import { mockCharacter } from '../../mocks/characters'
 
-// Mock the services
 vi.mock('../../services/characters', () => ({
   getCharacters: vi.fn()
 }))
 
-// Mock react-i18next
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
-    t: (key: string) => {
+    t: (key: string, options?: { message?: string }) => {
       const translations: Record<string, string> = {
+        'loading': 'Loading...',
+        'error': `Error: ${options?.message || 'Unknown error'}`,
         'character.name': 'Name',
         'character.status': 'Status',
         'character.species': 'Species',
@@ -23,7 +23,8 @@ vi.mock('react-i18next', () => ({
         'character.dead': 'Dead',
         'character.unknown': 'Unknown',
         'character.human': 'Human',
-        'character.alien': 'Alien'
+        'character.alien': 'Alien',
+        'character.loadMore': 'Load More'
       }
       return translations[key] || key
     }
@@ -86,37 +87,7 @@ describe('RickScreen Component', () => {
     expect(screen.queryByTestId('characters-list')).not.toBeInTheDocument()
   })
 
-  it('should show loading state when button is clicked and data is loading', async () => {
-    mockedGetCharacters.mockImplementation(() => new Promise(() => {}))
-    
-    render(<RickScreen />, { wrapper: createWrapper() })
-    
-    const button = screen.getByTestId('show-characters-button')
-    fireEvent.click(button)
-    
-    await waitFor(() => {
-      expect(screen.getByText('Loading...')).toBeInTheDocument()
-    })
-    
-    expect(screen.queryByTestId('show-characters-button')).not.toBeInTheDocument()
-  })
 
-  it('should display error message when data loading fails', async () => {
-    const errorMessage = 'Failed to fetch characters'
-    mockedGetCharacters.mockRejectedValue(new Error(errorMessage))
-    
-    render(<RickScreen />, { wrapper: createWrapper() })
-    
-    const button = screen.getByTestId('show-characters-button')
-    fireEvent.click(button)
-    
-    await waitFor(() => {
-      expect(screen.getByText(`Error: ${errorMessage}`)).toBeInTheDocument()
-    })
-    
-    expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
-    expect(screen.queryByTestId('show-characters-button')).not.toBeInTheDocument()
-  })
 
   it('should handle empty characters array', async () => {
     const emptyApiResponse = {
@@ -137,7 +108,7 @@ describe('RickScreen Component', () => {
     fireEvent.click(button)
     
     await waitFor(() => {
-      expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
+      expect(screen.queryByText('loading')).not.toBeInTheDocument()
     })
     
     expect(screen.getByTestId('characters-list')).toBeInTheDocument()

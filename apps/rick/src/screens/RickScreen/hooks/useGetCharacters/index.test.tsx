@@ -1,10 +1,9 @@
 import { renderHook, waitFor } from '@testing-library/react'
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { type ReactNode } from 'react'
 import { useGetCharacters } from './index'
 import * as charactersService from '../../../../services/characters'
 import { mockCharacters, mockCharacter } from '../../../../mocks/characters'
+import { QueryClientWrapper as createWrapper } from '../../../../test/QueryClientWrapper'
 
 // Mock the characters service
 vi.mock('../../../../services/characters', () => ({
@@ -12,24 +11,6 @@ vi.mock('../../../../services/characters', () => ({
 }))
 
 const mockedGetCharacters = vi.mocked(charactersService.getCharacters)
-
-// Create a wrapper component for React Query
-const createWrapper = () => {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        retry: false,
-        gcTime: 0,
-      },
-    },
-  })
-
-  return ({ children }: { children: ReactNode }) => (
-    <QueryClientProvider client={queryClient}>
-      {children}
-    </QueryClientProvider>
-  )
-}
 
 describe('useGetCharacters Hook', () => {
   beforeEach(() => {
@@ -50,7 +31,7 @@ describe('useGetCharacters Hook', () => {
     })
 
     expect(result.current.isLoading).toBe(true)
-    expect(result.current.data).toBeUndefined()
+    expect(result.current.allCharacters).toEqual([])
     expect(result.current.error).toBeNull()
   })
 
@@ -59,7 +40,7 @@ describe('useGetCharacters Hook', () => {
       info: {
         count: 3,
         pages: 1,
-        next: '',
+        next: 'https://rickandmortyapi.com/api/character/?page=2',
         prev: null
       },
       results: mockCharacters
@@ -75,7 +56,13 @@ describe('useGetCharacters Hook', () => {
       expect(result.current.isLoading).toBe(false)
     })
 
-    expect(result.current.data).toEqual(mockApiResponse)
+    // For useInfiniteQuery, data has pages structure
+    expect(result.current.data).toEqual({
+      pages: [mockApiResponse],
+      pageParams: [1]
+    })
+    // But allCharacters should be flattened
+    expect(result.current.allCharacters).toEqual(mockCharacters)
     expect(result.current.error).toBeNull()
     expect(mockedGetCharacters).toHaveBeenCalledTimes(1)
   })
@@ -119,7 +106,13 @@ describe('useGetCharacters Hook', () => {
       expect(result.current.isLoading).toBe(false)
     })
 
-    expect(result.current.data).toEqual(emptyApiResponse)
+    // For useInfiniteQuery, data has pages structure
+    expect(result.current.data).toEqual({
+      pages: [emptyApiResponse],
+      pageParams: [1]
+    })
+    // But allCharacters should be empty array
+    expect(result.current.allCharacters).toEqual([])
     expect(result.current.error).toBeNull()
   })
 
@@ -144,7 +137,8 @@ describe('useGetCharacters Hook', () => {
       expect(result.current.isLoading).toBe(false)
     })
 
-    expect(mockedGetCharacters).toHaveBeenCalledWith()
+    // useInfiniteQuery calls with pageParam
+    expect(mockedGetCharacters).toHaveBeenCalledWith({ page: 1 })
     expect(mockedGetCharacters).toHaveBeenCalledTimes(1)
   })
 })

@@ -12,6 +12,8 @@
     "human": "Human",
     "alive": "Alive",
     "dead": "Dead",
-    "unknown": "unknown"
+    "unknown": "unknown",
+    "loadMore": "Load More",
+    "loadMoreButton": "Loading..."
   }
 }

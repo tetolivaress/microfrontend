@@ -39,7 +39,7 @@ export interface Location {
 }
 
 
-export const getCharacters = async () => {
-  const response = await rickDB.get<Characters>('/character')
+export const getCharacters = async ({ page }: { page: number }) => {
+  const response = await rickDB.get<Characters>('/character', { params: { page } })
   return response.data
 }
