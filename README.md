@@ -134,6 +134,19 @@ pnpm test
 - **Test Runner**: Vitest
 - **Testing Library**: React Testing Library
 
+### Git Hooks (Husky)
+
+This project uses **Husky** to enforce code quality standards. Before any commit can be created or applied, all tests must pass. If tests fail, the commit will be rejected.
+
+**Important**: Make sure all tests are passing before attempting to commit:
+
+```bash
+# Run tests before committing
+pnpm test
+```
+
+If tests fail, fix the issues and run the tests again before committing your changes.
+
 ## Architecture
 
 This microfrontend setup uses Vite's Module Federation plugin to enable:
