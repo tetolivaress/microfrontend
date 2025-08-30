@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const StyledButtonContainer = styled.button`
   margin: 1rem;
-  align-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,6 +20,12 @@ export const StyledButtonText = styled.span`
   font-size: ${({ theme }) => theme.text.fontSize};
   font-weight: ${({ theme }) => theme.text.fontWeight};
   color: ${({ theme }) => theme.colors.secondary};
+`
+
+export const StyledButtonHover = styled(StyledButtonContainer)`
+  &:hover {
+    background-color: ${({ theme }) => theme.hoverColor};
+  }
 `
 
 export const StyledButton = StyledButtonContainer

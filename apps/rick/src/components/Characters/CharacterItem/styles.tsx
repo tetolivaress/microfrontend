@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 
-export const StyledCharacterItem = styled.div`
+export const StyledCharacterItemContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 8px;
-box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  align-items: center;
+  justify-content: center;
+  padding: ${({ theme }) => theme.padding};
+  border-radius: ${({ theme }) => theme.borderRadius};
 `
 
 export const StyledCharacterImage = styled.img`
@@ -15,6 +17,21 @@ export const StyledCharacterImage = styled.img`
   border-radius: 50%;
 `
 
+export const StyledCharacterDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+`
+
 export const StyledCharacterTitle = styled.span`
   font-weight: bold;
 `
+
+export const StyledCharacterItemHover = styled(StyledCharacterItemContainer)`
+  &:hover {
+    background-color: ${({ theme }) => theme.hoverColor};
+  }
+`
+
+export const StyledCharacterItem = StyledCharacterItemHover

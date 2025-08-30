@@ -44,7 +44,8 @@ vi.mock('../../components/Button/styles', () => ({
 vi.mock('../../components/Characters/CharacterItem/styles', () => ({
   StyledCharacterItem: ({ children }: { children: ReactNode }) => <div data-testid="character-item">{children}</div>,
   StyledCharacterImage: ({ src, alt }: { src: string; alt: string }) => <img data-testid="character-image" src={src} alt={alt} />,
-  StyledCharacterTitle: ({ children }: { children: ReactNode }) => <span data-testid="character-title">{children}</span>
+  StyledCharacterTitle: ({ children }: { children: ReactNode }) => <span data-testid="character-title">{children}</span>,
+  StyledCharacterDescription: ({ children }: { children: ReactNode }) => <div data-testid="character-description">{children}</div>
 }))
 
 const mockedGetCharacters = vi.mocked(charactersService.getCharacters)
