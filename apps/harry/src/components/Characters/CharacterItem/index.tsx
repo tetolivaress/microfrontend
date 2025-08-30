@@ -1,6 +1,6 @@
-import type { Character } from "../../../services/characters";
+import type { Character } from "@services/characters";
 import { StyledCharacterItem, StyledCharacterImage, StyledCharacterDescription, StyledCharacterTitle } from "./styles";
-import Portrait from "../../../assets/portrait.png";
+import Portrait from "@assets/portrait.png";
 import { useTranslation } from 'react-i18next';
 
 const CharacterItem = ({ character }: { character: Character }) => {

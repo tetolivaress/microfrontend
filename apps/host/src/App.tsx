@@ -1,10 +1,10 @@
 import { ThemeProvider } from 'styled-components'
 import { Theme } from './Theme'
-import Rick from './components/Rick'
-import Harry from './components/Harry'
-import Header from './components/Header'
+import Rick from '@components/Rick'
+import Harry from '@components/Harry'
+import Header from '@components/Header'
 import { useApp } from './hooks'
-import './config/i18n'
+import '@config/i18n'
 import { Grid } from './Theme'
 
 function App() {

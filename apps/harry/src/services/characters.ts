@@ -1,4 +1,4 @@
-import { harryDB } from "../apis"
+import { harryDB } from "@apis"
 export interface Wand {
   wood: string;
   core: string;

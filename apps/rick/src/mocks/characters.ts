@@ -1,4 +1,4 @@
-import type { CharactersResult, Status, Species, Gender } from '../services/characters'
+import type { CharactersResult, Status, Species, Gender } from '@services/characters'
 
 export const mockCharacter: CharactersResult = {
   id: 1,

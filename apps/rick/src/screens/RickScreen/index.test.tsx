@@ -83,7 +83,7 @@ describe('RickScreen Component', () => {
     
     const button = screen.getByTestId('show-characters-button')
     expect(button).toBeInTheDocument()
-    expect(button).toHaveTextContent('Show Characters')
+    expect(button).toHaveTextContent('buttons.showCharacters')
     
     expect(screen.queryByTestId('characters-list')).not.toBeInTheDocument()
   })

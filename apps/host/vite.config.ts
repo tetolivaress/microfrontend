@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import federation from '@originjs/vite-plugin-federation'
+import path from 'path'
 
 export default defineConfig({
   plugins: [react(), federation({
@@ -10,6 +11,16 @@ export default defineConfig({
       harry: 'http://localhost:3002/assets/remoteEntry.js'
     }
   })],
+  resolve: {
+    alias: {
+      '@components': path.resolve(__dirname, './src/components'),
+      '@config': path.resolve(__dirname, './src/config'),
+      '@assets': path.resolve(__dirname, './src/assets'),
+      '@services': path.resolve(__dirname, './src/services'),
+      '@screens': path.resolve(__dirname, './src/screens'),
+      '@apis': path.resolve(__dirname, './src/apis'),
+    },
+  },
   server: {
     port: 3000,
   },

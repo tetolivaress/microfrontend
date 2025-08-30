@@ -1,5 +1,5 @@
 import { useGetCharacters, useHandleButton } from './hooks'
-import { Button, CharactersList } from '../../components'
+import { Button, CharactersList } from '@components'
 import { useTranslation } from 'react-i18next'
 
 const HarryScreen = () => {

@@ -1,4 +1,4 @@
-import { rickDB } from '../apis'
+import { rickDB } from '@apis'
 
 export interface Characters {
   info:    Info;

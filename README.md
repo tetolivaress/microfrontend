@@ -98,6 +98,42 @@ pnpm dev
 2. **Integration Testing**: Use `pnpm build` + `pnpm preview` for microfrontends, then run the host
 3. **Full Development**: Use `pnpm dev:host` to run everything together (wait for all servers to start)
 
+## Testing
+
+This project uses **Vitest** for testing with React Testing Library for component testing.
+
+### Running All Tests
+
+To run tests across all applications in the monorepo:
+
+```bash
+# From the repo root
+pnpm test
+```
+
+### Running Tests for Individual Apps
+
+To run tests for a specific application:
+
+```bash
+# For Host application
+cd apps/host
+pnpm test
+
+# For Harry microfrontend
+cd apps/harry
+pnpm test
+
+# For Rick microfrontend
+cd apps/rick
+pnpm test
+```
+
+### Test Configuration
+
+- **Test Runner**: Vitest
+- **Testing Library**: React Testing Library
+
 ## Architecture
 
 This microfrontend setup uses Vite's Module Federation plugin to enable:

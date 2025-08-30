@@ -3,8 +3,8 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { type ReactNode } from 'react'
 import HarryScreen from './index'
-import * as charactersService from '../../services/characters'
-import { mockCharacters } from '../../mocks/characters'
+import * as charactersService from '@services/characters'
+import { mockCharacters } from '@mocks/characters'
 
 // Mock the services and hooks
 vi.mock('../../services/characters', () => ({

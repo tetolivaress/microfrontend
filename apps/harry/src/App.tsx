@@ -1,8 +1,8 @@
 import { ThemeProvider } from 'styled-components'
 import { Theme } from './Theme'
-import HarryScreen from './screens/HarryScreen'
+import HarryScreen from '@screens/HarryScreen'
 import { useEffect } from 'react'
-import './config/i18n'
+import '@config/i18n'
 import { useTranslation } from 'react-i18next'
 
 function App({ language }: { language: string }) {

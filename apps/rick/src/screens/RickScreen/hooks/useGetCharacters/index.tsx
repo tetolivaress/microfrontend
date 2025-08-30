@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { getCharacters } from '../../../../services/characters'
+import { getCharacters } from '@services/characters'
 
 export const useGetCharacters = () => {
   const { data, isLoading, error, fetchNextPage, hasNextPage } = useInfiniteQuery({

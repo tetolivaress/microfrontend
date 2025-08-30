@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import CharactersList from './index'
-import { mockCharacter, mockCharacters } from '../../../mocks/characters'
+import { mockCharacter, mockCharacters } from '@mocks/characters'
 
 // Mock react-i18next for CharacterItem component
 vi.mock('react-i18next', () => ({
