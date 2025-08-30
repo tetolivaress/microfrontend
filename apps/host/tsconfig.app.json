@@ -29,7 +29,9 @@
       "@screens": ["./src/screens"],
       "@screens/*": ["./src/screens/*"],
       "@apis": ["./src/apis"],
-      "@apis/*": ["./src/apis/*"]
+      "@apis/*": ["./src/apis/*"],
+      "@types": ["./src/types"],
+      "@types/*": ["./src/types/*"]
     },
 
     /* Linting */

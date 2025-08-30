@@ -33,7 +33,9 @@
       "@apis": ["./src/apis"],
       "@apis/*": ["./src/apis/*"],
       "@constants": ["./src/constants"],
-      "@constants/*": ["./src/constants/*"]
+      "@constants/*": ["./src/constants/*"],
+      "@types": ["./src/types"],
+      "@types/*": ["./src/types/*"]
     },
 
     /* Linting */

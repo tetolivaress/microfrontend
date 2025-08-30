@@ -1,4 +1,4 @@
-import type { Character } from "@services/characters";
+import type { Character } from "@types";
 import { StyledCharacterItem, StyledCharacterImage, StyledCharacterDescription, StyledCharacterTitle } from "./styles";
 import Portrait from "@assets/portrait.png";
 import { useTranslation } from 'react-i18next';

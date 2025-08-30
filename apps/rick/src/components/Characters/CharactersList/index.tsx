@@ -1,4 +1,4 @@
-import type { CharactersResult } from "@services/characters";
+import type { CharactersResult } from "@types";
 import { StyledCharacterList } from "./styles";
 import CharacterItem from "../CharacterItem";
 

@@ -1,4 +1,4 @@
-import type { CharactersResult } from "@services/characters";
+import type { CharactersResult } from "@types";
 import { StyledCharacterItem, StyledCharacterImage, StyledCharacterDescription, StyledCharacterTitle } from "./styles";
 import { useTranslation } from 'react-i18next';
 

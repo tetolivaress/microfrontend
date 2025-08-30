@@ -24,6 +24,7 @@ export default defineConfig({
       '@services': path.resolve(__dirname, './src/services'),
       '@screens': path.resolve(__dirname, './src/screens'),
       '@apis': path.resolve(__dirname, './src/apis'),
+      '@types': path.resolve(__dirname, './src/types'),
     },
   },
   server: {
@@ -35,6 +36,6 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './test/setup.ts',
+    setupFiles: './src/test/setup.ts',
   },
 })
