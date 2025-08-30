@@ -1,3 +1,5 @@
+import { ThemeProvider } from 'styled-components'
+import { Theme } from './Theme'
 import { useTranslation } from 'react-i18next'
 import RickScreen from './screens/RickScreen'
 import { useEffect } from 'react'
@@ -10,7 +12,11 @@ function App({ language }: { language: string }) {
     i18n.changeLanguage(language)
   }, [language, i18n])
   
-  return <RickScreen />
+  return (
+    <ThemeProvider theme={Theme}>
+      <RickScreen />
+    </ThemeProvider>
+  )
 }
 
 export default App

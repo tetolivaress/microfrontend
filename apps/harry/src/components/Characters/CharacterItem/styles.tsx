@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
-export const StyledCharacterItem = styled.div`
-  padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+export const StyledCharacterItemContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
 `
 
 export const StyledCharacterImage = styled.img`
@@ -12,6 +13,13 @@ export const StyledCharacterImage = styled.img`
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
+`
+
+export const StyledCharacterDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
 `
 
 export const StyledCharacterTitle = styled.span`

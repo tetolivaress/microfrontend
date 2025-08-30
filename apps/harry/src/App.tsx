@@ -1,3 +1,5 @@
+import { ThemeProvider } from 'styled-components'
+import { Theme } from './Theme'
 import HarryScreen from './screens/HarryScreen'
 import { useEffect } from 'react'
 import './config/i18n'
@@ -10,7 +12,11 @@ function App({ language }: { language: string }) {
     i18n.changeLanguage(language)
   }, [language, i18n])
   
-  return <HarryScreen />
+  return (
+    <ThemeProvider theme={Theme}>
+      <HarryScreen />
+    </ThemeProvider>
+  )
 }
 
 export default App

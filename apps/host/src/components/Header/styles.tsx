@@ -4,8 +4,8 @@ export const StyledHeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
-  background-color: #f0f0f0;
+  padding: ${({ theme }) => theme.padding};
+  background-color: ${({ theme }) => theme.colors.primary};
   position: fixed;
   top: 0;
   left: 0;
@@ -13,6 +13,7 @@ export const StyledHeaderContainer = styled.div`
   z-index: 100;
 `
 export const StyledHeaderTitle = styled.h1`
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.text.fontSize};
+  font-weight: ${({ theme }) => theme.text.fontWeight};
+  color: ${({ theme }) => theme.colors.secondary};
 `

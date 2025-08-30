@@ -1,8 +1,21 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
-  background-color: #f0f0f0;
+export const StyledButtonContainer = styled.button`
+  background-color: ${({ theme }) => theme.button.colors.secondary};
   border: none;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding: ${({ theme }) => theme.padding};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  cursor: pointer;
+  
+  &:hover {
+    background-color: ${({ theme }) => theme.hoverColor};
+  }
 `
+
+export const StyledButtonText = styled.span`
+  font-size: ${({ theme }) => theme.text.fontSize};
+  font-weight: ${({ theme }) => theme.text.fontWeight};
+  color: ${({ theme }) => theme.colors.secondary};
+`
+
+export const StyledButton = StyledButtonContainer

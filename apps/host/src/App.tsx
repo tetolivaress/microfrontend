@@ -1,3 +1,5 @@
+import { ThemeProvider } from 'styled-components'
+import { Theme } from './Theme'
 import Rick from './components/Rick'
 import Harry from './components/Harry'
 import styled from 'styled-components'
@@ -17,13 +19,13 @@ function App() {
   const { language, toggleLanguage } = useApp()
 
   return (
-    <>
+    <ThemeProvider theme={Theme}>
       <Header onToggleLanguage={toggleLanguage} />
       <Grid>
         <Rick language={language} />
         <Harry language={language} />
       </Grid>
-    </>
+    </ThemeProvider>
   )
 }
 
