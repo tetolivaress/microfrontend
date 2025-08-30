@@ -67,6 +67,6 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-top: 48px;
+  margin-top: 60px;
   justify-content: center;
 `
