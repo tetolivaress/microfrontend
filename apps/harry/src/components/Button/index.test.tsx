@@ -14,7 +14,7 @@ describe('Button Component', () => {
     
     const button = screen.getByRole('button')
     expect(button).toBeInTheDocument()
-    expect(button).toHaveTextContent('Clickme')
+    expect(button).toHaveTextContent('Click me')
   })
 
   it('calls onClick when clicked', () => {

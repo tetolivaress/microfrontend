@@ -19,10 +19,10 @@ importers:
         specifier: ^5.1.34
         version: 5.1.34
       husky:
-        specifier: ^9.0.11
+        specifier: ^9.1.7
         version: 9.1.7
       lint-staged:
-        specifier: ^15.2.2
+        specifier: ^15.5.2
         version: 15.5.2
 
   apps/harry:
