@@ -1,4 +1,5 @@
 import { harryDB } from "@apis"
+import { API_ENDPOINTS } from "@constants"
 export interface Wand {
   wood: string;
   core: string;
@@ -29,6 +30,6 @@ export interface Character {
 }
 
 export const getCharacters = async () => {
-  const response = await harryDB.get<Character[]>('/characters')
+  const response = await harryDB.get<Character[]>(API_ENDPOINTS.CHARACTERS)
   return response.data
 }

@@ -24,6 +24,7 @@ export default defineConfig(({ mode }) => {
         '@services': path.resolve(__dirname, './src/services'),
         '@screens': path.resolve(__dirname, './src/screens'),
         '@apis': path.resolve(__dirname, './src/apis'),
+        '@constants': path.resolve(__dirname, './src/constants'),
       },
     },
     server: {

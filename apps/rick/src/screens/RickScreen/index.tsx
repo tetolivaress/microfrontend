@@ -1,6 +1,7 @@
 import { useGetCharacters, useHandleButton } from './hooks'
 import { Button, CharactersList } from '@components'
 import { useTranslation } from 'react-i18next'
+import Title from '@components/Title'
 
 
 const RickScreen = () => {
@@ -15,6 +16,7 @@ const RickScreen = () => {
 
   return (
     <>
+    <Title>{t('title')}</Title>
     {isLoading && <div>{t('loading')}</div>}
     {error && <div>{t('error', { message: error?.message })}</div>}
       <CharactersList show={showCharacters} characters={allCharacters || []} />

@@ -38,6 +38,11 @@ vi.mock('../../components/Characters/CharacterItem/styles', () => ({
   StyledCharacterItem: ({ children }: { children: ReactNode }) => <div data-testid="character-item">{children}</div>
 }))
 
+vi.mock('../../components/Title/styles', () => ({
+  StyledTitleContainer: ({ children }: { children: ReactNode }) => <div data-testid="title-container">{children}</div>,
+  StyledTitle: ({ children }: { children: ReactNode }) => <span data-testid="title">{children}</span>
+}))
+
 const mockedGetCharacters = vi.mocked(charactersService.getCharacters)
 
 // Create a wrapper component for React Query
@@ -99,51 +104,7 @@ describe('HarryScreen Component', () => {
     expect(screen.queryByTestId('show-characters-button')).not.toBeInTheDocument()
   })
 
-  // it('should display cha`racters when data loads successfully', async () => {
-  //   mockedGetCharacters.mockResolvedValue(mockCharacters)
-    
-  //   render(<HarryScreen />, { wrapper: createWrapper() })
-    
-  //   const button = screen.getByTestId('show-characters-button')
-  //   fireEvent.click(button)
-    
-  //   // Wait for loading to complete and characters to display
-  //   await waitFor(() => {
-  //     expect(screen.getByTestId('characters-list')).toBeInTheDocument()
-  //   })
-    
-  //   // Should show character items
-  //   const characterItems = screen.getAllByTestId('character-item')
-  //   expect(characterItems).toHaveLength(mockCharacters.length)
-    
-  //   // Should not show loading or button anymore
-  //   expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
-  //   expect(screen.queryByTestId('show-characters-button')).not.toBeInTheDocument()
-    
-  //   expect(mockedGetCharacters).toHaveBeenCalledTimes(1)
-  // })`
 
-  // it('should display error message when data loading fails', async () => {
-  //   const errorMessage = 'Failed to fetch characters'
-  //   mockedGetCharacters.mockRejectedValue(new Error(errorMessage))
-    
-  //   render(<HarryScreen />, { wrapper: createWrapper() })
-    
-  //   const button = screen.getByTestId('show-characters-button')
-  //   fireEvent.click(button)
-    
-  //   // Wait for error to be displayed
-  //   await waitFor(() => {
-  //     expect(screen.getByText(`Error: ${errorMessage}`)).toBeInTheDocument()
-  //   })
-    
-  //   // Should not show loading, button, or characters list
-  //   expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
-  //   expect(screen.queryByTestId('show-characters-button')).not.toBeInTheDocument()
-  //   expect(screen.queryByTestId('characters-list')).not.toBeInTheDocument()
-    
-  //   expect(mockedGetCharacters).toHaveBeenCalledTimes(1)
-  // })
 
   it('should handle empty characters array', async () => {
     mockedGetCharacters.mockResolvedValue([])
@@ -153,12 +114,10 @@ describe('HarryScreen Component', () => {
     const button = screen.getByTestId('show-characters-button')
     fireEvent.click(button)
     
-    // Wait for loading to complete
     await waitFor(() => {
       expect(screen.queryByText('Loading...')).not.toBeInTheDocument()
     })
     
-    // Should show empty characters list
     expect(screen.getByTestId('characters-list')).toBeInTheDocument()
     expect(screen.queryAllByTestId('character-item')).toHaveLength(0)
     
@@ -170,23 +129,9 @@ describe('HarryScreen Component', () => {
     
     render(<HarryScreen />, { wrapper: createWrapper() })
     
-    // Initially should only show button
     expect(screen.getByTestId('show-characters-button')).toBeInTheDocument()
     expect(screen.queryByTestId('characters-list')).not.toBeInTheDocument()
   })
-
-  // it('should call getCharacters only when showCharacters becomes true', async () => {
-  //   mockedGetCharacters.mockResolvedValue(mockCharacters)
-    
-  //   render(<HarryScreen />, { wrapper: createWrapper() })
-    
-  //   // Initially getCharacters should not be called
-  //   expect(mockedGetCharacters).not.toHaveBeenCalled()
-    
-  //   // Click button to trigger data fetching
-  //   const button = screen.getByTestId('show-characters-button')
-  //   fireEvent.click(button)
-  // })
 
   it('should handle network errors gracefully', async () => {
     const networkError = new Error('Network Error')

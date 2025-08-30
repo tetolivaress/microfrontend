@@ -1,4 +1,5 @@
 import { rickDB } from '@apis'
+import { API_ENDPOINTS } from '@constants'
 
 export interface Characters {
   info:    Info;
@@ -40,6 +41,6 @@ export interface Location {
 
 
 export const getCharacters = async ({ page }: { page: number }) => {
-  const response = await rickDB.get<Characters>('/character', { params: { page } })
+  const response = await rickDB.get<Characters>(API_ENDPOINTS.CHARACTER, { params: { page } })
   return response.data
 }
