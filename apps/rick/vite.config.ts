@@ -2,19 +2,24 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import federation from '@originjs/vite-plugin-federation'
 import path from 'path'
+import svgr from 'vite-plugin-svgr';
 
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
-    plugins: [react(), federation({
+    plugins: [
+      react(),
+      svgr(),
+      federation({
       name: 'rick',
       filename: 'remoteEntry.js',
       exposes: {
         './App': './src/main.tsx',
       },
-    })],
+      })
+    ],
     resolve: {
       alias: {
         '@components': path.resolve(__dirname, './src/components'),

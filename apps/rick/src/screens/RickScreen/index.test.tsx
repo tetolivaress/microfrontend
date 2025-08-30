@@ -41,6 +41,11 @@ vi.mock('../../components/Button/styles', () => ({
     <button data-testid="show-characters-button" onClick={onClick}>{children}</button>
 }))
 
+vi.mock('../../components/Title/styles', () => ({
+  StyledTitleContainer: ({ children }: { children: ReactNode }) => <div data-testid="title-container">{children}</div>,
+  StyledTitle: ({ children }: { children: ReactNode }) => <span data-testid="title">{children}</span>
+}))
+
 vi.mock('../../components/Characters/CharacterItem/styles', () => ({
   StyledCharacterItem: ({ children }: { children: ReactNode }) => <div data-testid="character-item">{children}</div>,
   StyledCharacterImage: ({ src, alt }: { src: string; alt: string }) => <img data-testid="character-image" src={src} alt={alt} />,
